@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+@theme {
+  /* Their photography is cool grey showroom light with a brass emblem. This
+     site reads as an instrument panel rather than a luxury lobby: graphite,
+     steel, and brass used only where their own emblem uses it. */
+  --color-graphite: #0d0f12;
+  --color-graphite-2: #14181d;
+  --color-graphite-3: #1d232a;
+  --color-steel: #8f9aa6;
+  --color-steel-2: #5d6874;
+  --color-white-hot: #f2f5f7;
+  --color-brass: #c8a25a;
+  --color-live: #5ce1b9;
+
+  --font-display: var(--font-chakra), "Helvetica Neue", sans-serif;
+  --font-body: var(--font-plex), system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+  --font-arabic: var(--font-kufi), "Segoe UI", sans-serif;
+
+  --text-hero: clamp(2.5rem, 6vw, 5.6rem);
+  --text-display: clamp(1.8rem, 4vw, 3.4rem);
+  --text-section: clamp(1.35rem, 2.4vw, 2.1rem);
+  --text-lead: clamp(0.98rem, 1.2vw, 1.15rem);
+}
+
+@layer base {
+  html {
+    background: var(--color-graphite);
+    color: var(--color-white-hot);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+
+  html[dir="rtl"] body {
+    font-family: var(--font-arabic);
+  }
+
+  ::selection {
+    background: var(--color-live);
+    color: var(--color-graphite);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@utility font-display {
+  font-family: var(--font-display);
+}
+
+@utility font-mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Instrument grid, borrowed from a spec sheet rather than a showroom floor. */
+@utility grid-field {
+  background-image: linear-gradient(
+      to right,
+      color-mix(in oklab, var(--color-steel) 9%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in oklab, var(--color-steel) 9%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 64px 64px;
+}
+
+/* Figures don't fade in — they seat, like a gauge needle finding its stop. */
+@keyframes seat {
+  from {
+    opacity: 0;
+    transform: translateY(0.42em);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @keyframes seat {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+@utility hair-brass {
+  background: linear-gradient(90deg, transparent, var(--color-brass), transparent);
+}
+
+/* Arabic corrections, unlayered so they outrank the utilities. */
+html[dir="rtl"] .font-display {
+  font-family: var(--font-arabic);
+  letter-spacing: 0;
+}
+
+html[dir="rtl"] .text-hero {
+  font-size: clamp(1.85rem, 5.2vw, 4.6rem);
+  line-height: 1.34;
+}
+
+html[dir="rtl"] .text-display {
+  font-size: clamp(1.5rem, 3.3vw, 2.8rem);
+  line-height: 1.38;
+}
+
+html[dir="rtl"] .text-section {
+  font-size: clamp(1.2rem, 2.2vw, 1.85rem);
+  line-height: 1.42;
+}
+
+html[dir="rtl"] [class*="tracking-["] {
+  letter-spacing: 0.01em;
+}

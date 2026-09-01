@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <!--
+    Wheels' emblem, redrawn from the brass original mounted on their showroom
+    wall (visible in their own photography): a winged roundel with WHEELS arched
+    above the W and DRIVE THE CHANGE below it. Their Instagram avatar is a
+    family photograph, so this is traced from the wall piece instead.
+
+    The dark details are knockouts, so the mark is built to sit on the graphite
+    page ground — it is not a general-purpose light-background logo.
+  -->
+  <defs>
+    <linearGradient id="wh-brass" x1="0.15" y1="0" x2="0.85" y2="1">
+      <stop offset="0" stop-color="#f0d9a2" />
+      <stop offset="0.34" stop-color="#c8a25a" />
+      <stop offset="0.62" stop-color="#e3c489" />
+      <stop offset="1" stop-color="#8a6a31" />
+    </linearGradient>
+  </defs>
+
+  <g fill="url(#wh-brass)">
+    <!-- Left wing: four blades, longest on top, raking up and out. -->
+    <g>
+      <path d="M14 88 C52 116 96 140 122 150 L122 166 C92 158 48 126 14 88 Z" />
+      <path d="M26 132 C60 152 92 164 118 170 L118 184 C90 180 56 166 26 132 Z" />
+      <path d="M44 170 C72 184 96 192 116 196 L116 208 C94 206 68 196 44 170 Z" />
+      <path d="M64 202 C86 212 100 216 114 218 L114 229 C96 228 80 218 64 202 Z" />
+    </g>
+    <!-- Right wing: the same blades mirrored. -->
+    <g transform="translate(400,0) scale(-1,1)">
+      <path d="M14 88 C52 116 96 140 122 150 L122 166 C92 158 48 126 14 88 Z" />
+      <path d="M26 132 C60 152 92 164 118 170 L118 184 C90 180 56 166 26 132 Z" />
+      <path d="M44 170 C72 184 96 192 116 196 L116 208 C94 206 68 196 44 170 Z" />
+      <path d="M64 202 C86 212 100 216 114 218 L114 229 C96 228 80 218 64 202 Z" />
+    </g>
+
+    <!-- The disc. -->
+    <circle cx="200" cy="150" r="100" />
+  </g>
+
+  <!-- Inset rim groove. -->
+  <circle cx="200" cy="150" r="92" stroke="#0d0f12" stroke-width="3.5" />
+
+  <!-- The W, outlined by a groove rather than separated by colour. -->
+  <path
+    d="M152 102 L172 102 L196 160 L200 130 L204 160 L228 102 L248 102 L214 192 L200 162 L186 192 Z"
+    fill="url(#wh-brass)"
+    stroke="#0d0f12"
+    stroke-width="9"
+    stroke-linejoin="round"
+  />
+
+  <!-- Curved groove beneath the W, separating it from the lower field. -->
+  <path d="M146 182 A62 62 0 0 0 254 182" stroke="#0d0f12" stroke-width="9" fill="none" />
+
+  <!-- Arched lettering, knocked out of the brass. -->
+  <defs>
+    <path id="wh-top" d="M130 140 A74 74 0 0 1 270 140" />
+    <path id="wh-bottom" d="M138 172 A70 70 0 0 0 262 172" />
+  </defs>
+
+  <text
+    fill="#0d0f12"
+    font-family="'Helvetica Neue', Arial, sans-serif"
+    font-weight="700"
+    font-size="25"
+    letter-spacing="5"
+    text-anchor="middle"
+  >
+    <textPath href="#wh-top" startOffset="50%">WHEELS</textPath>
+  </text>
+
+  <text
+    fill="#0d0f12"
+    font-family="'Helvetica Neue', Arial, sans-serif"
+    font-weight="700"
+    font-size="14.5"
+    letter-spacing="1.4"
+    text-anchor="middle"
+  >
+    <textPath href="#wh-bottom" startOffset="50%">DRIVE THE CHANGE</textPath>
+  </text>
+</svg>

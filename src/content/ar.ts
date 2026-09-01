@@ -1,0 +1,173 @@
+import type { WheelsContent } from "./schema-ext";
+import { STOREFRONT, SHOWROOM } from "./media";
+
+/**
+ * Arabic is the primary voice. Wheels post short, confident, spec-led captions
+ * in Egyptian Arabic — the copy below keeps that register rather than smoothing
+ * it into formal MSA.
+ */
+export const ar: WheelsContent = {
+  locale: "ar",
+  dir: "rtl",
+  brand: {
+    name: "ويلز أوتوموتيف",
+    shortName: "WHEELS",
+    tagline: "عجلتان تحرّكان الجسد .. وأربع تحرّك الروح",
+  },
+  nav: [
+    { label: "المعرض", href: "#specs" },
+    { label: "الصالة", href: "#wall" },
+    { label: "الماركات", href: "#marques" },
+    { label: "زورنا", href: "#visit" },
+  ],
+  hero: {
+    eyebrow: "٤٦ شارع الثورة — مصر الجديدة، القاهرة",
+    headline: "قُد التغيير",
+    sub: "معرض ويلز أوتوموتيف. سيارات مختارة واحدة واحدة، بحالة الوكيل، وبكل التفاصيل مكتوبة قدّامك قبل ما تسأل.",
+    primaryCta: "شوف المتاح",
+    secondaryCta: "كلّمنا واتساب",
+  },
+  about: {
+    heading: "المعرض",
+    body: [
+      "من قلب مصر الجديدة، بنختار عربيات قليلة ونعرفها كويس — بدل ما نركن صف طويل مش عارفين تاريخه.",
+      "كل عربية عندنا لها كارت مواصفات كامل: الموتور، القوة، الجنوط، الصوت، وكل إضافة جوّه. اللي تشوفه هنا هو اللي هتلاقيه في الصالة.",
+    ],
+    stats: [
+      { value: "١٠", label: "ماركة في الصالة" },
+      { value: "٧٠٠+", label: "سيارة معروضة" },
+      { value: "١٣٫٣ ألف", label: "متابع" },
+    ],
+  },
+  services: {
+    heading: "إزاي بنشتغل",
+    items: [
+      {
+        title: "مواصفات مكتوبة بالكامل",
+        body: "مفيش «تعالى شوف». كل عربية معاها الكارت بتاعها بالتفصيل قبل ما تتحرك من مكانك.",
+      },
+      {
+        title: "عربيات مختارة",
+        body: "بنشوف العربية بنفسنا قبل ما تدخل الصالة، ولو مش هنشتريها لنفسنا مش هنعرضها عليك.",
+      },
+      {
+        title: "تسليم من الصالة",
+        body: "العربية بتستلمها من المعرض في مصر الجديدة، نضيفة وجاهزة، مش من جراج بعيد.",
+      },
+    ],
+  },
+  gallery: {
+    heading: "من الصالة",
+    items: [
+      ...SHOWROOM.map((src) => ({ src, alt: "سيارة داخل صالة عرض ويلز أوتوموتيف" })),
+      ...STOREFRONT.map((src) => ({ src, alt: "واجهة معرض ويلز أوتوموتيف في مصر الجديدة" })),
+    ],
+  },
+  contact: {
+    heading: "زورنا",
+    intro: "الصالة مفتوحة، والعربيات اللي فوق دي موجودة فيها فعلاً.",
+    addressLabel: "العنوان",
+    address: "٤٦ شارع الثورة، مصر الجديدة، القاهرة",
+    phoneLabel: "تليفون / واتساب",
+    phones: ["01070719678"],
+    hoursLabel: "المواعيد",
+    hours: "يوميًا من ١١ ص حتى ١٠ م",
+    mapsUrl: "https://maps.app.goo.gl/H2eot5QANGHGi2Fd8",
+    instagramUrl: "https://www.instagram.com/wheels.eg/",
+    cta: "كلّمنا على واتساب",
+  },
+  footer: {
+    disclaimer: "تصميم مفاهيمي — ليس الموقع الرسمي لويلز أوتوموتيف.",
+    rights: "الصور والمواصفات منقولة من الحسابات الرسمية للمعرض.",
+  },
+  a11y: {
+    toggleLanguage: "التبديل إلى الإنجليزية",
+    openMenu: "فتح القائمة",
+    closeMenu: "إغلاق القائمة",
+  },
+
+  specs: {
+    heading: "كارت المواصفات",
+    intro: "خمس عربيات من الصالة، بنفس التفاصيل اللي بننشرها على حساباتنا — من غير أي زيادة.",
+    kitLabel: "التجهيزات",
+    indexLabel: "وحدة",
+    yearLabel: "الموديل",
+    labels: {
+      Power: "القوة",
+      Torque: "العزم",
+      Drivetrain: "نظام الدفع",
+      "EV range": "المدى الكهربائي",
+      Engine: "سعة الموتور",
+      Seats: "المقاعد",
+      Suspension: "المساعدين",
+      Rims: "الجنوط",
+      Audio: "الصوت",
+      Camera: "الكاميرا",
+    },
+    values: {
+      "680 hp": "٦٨٠ حصان",
+      "261 hp": "٢٦١ حصان",
+      "224 hp": "٢٢٤ حصان",
+      "250 hp": "٢٥٠ حصان",
+      "184 hp": "١٨٤ حصان",
+      "720 Nm": "٧٢٠ نيوتن.متر",
+      "PHEV 1.5T": "هايبرد بلج-إن ١٫٥ تيربو",
+      "125 km": "١٢٥ كم",
+      "2000 cc": "٢٠٠٠ سي سي",
+      "1500 cc": "١٥٠٠ سي سي",
+      "7": "٧",
+      Hydraulic: "هيدروليك",
+      '20"': "٢٠ بوصة",
+      '18"': "١٨ بوصة",
+      Burmester: "برماستر",
+      Meridian: "مريديان",
+      "360°": "٣٦٠ درجة",
+    },
+    kit: {
+      "Dual electric motor": "موتور كهربائي مزدوج",
+      "4WD": "دفع رباعي",
+      "Full ADAS driving assistance": "أنظمة مساعدة القيادة ADAS كاملة",
+      "Front & rear differential locks": "قفل ترس أمامي وخلفي",
+      "23-speaker Devialet": "صوت Devialet بـ٢٣ سماعة",
+      "Three screens": "ثلاث شاشات",
+      "Nine driving modes": "تسعة أوضاع قيادة",
+      "Full film protection, 10 years": "فيلم حماية كامل ضمان ١٠ سنين",
+      "Roof rack, electric side step, side ladder": "شبكة سقف، ودرجة جانبية كهربائية، وسلّم جانبي",
+      "360° cameras": "كاميرات ٣٦٠ درجة",
+      "Soft-close doors": "أبواب سوفت كلوز",
+      "Keyless entry": "دخول بدون مفتاح",
+      "Projector headlights": "كشافات بروجكتور",
+      "Panoramic sunroof": "فتحة سقف بانوراما",
+      "Front & rear climate control": "تكييف أمامي وخلفي",
+      "Heated & ventilated seats": "كراسي تدفئة وتهوية",
+      "Adjustable ride height": "ارتفاع قابل للتعديل",
+      "Electric tow hitch, power tailgate": "كلّاب سحب كهربائي وشنطة كهربائية",
+      "Bang & Olufsen sound system": "نظام صوت Bang & Olufsen",
+      "360° camera": "كاميرا ٣٦٠ درجة",
+      "Heated electric seats with memory": "كراسي كهرباء تدفئة بالذاكرة",
+      "Wireless charging": "شاحن لاسلكي",
+      "Apple CarPlay & Android Auto": "Apple CarPlay و Android Auto",
+      "Digital Light headlamps": "كشافات Digital Light",
+      "Blind Spot Assist": "مساعد النقطة العمياء",
+      "Rear view camera": "كاميرا خلفية",
+      "Front & rear parking sensors": "حساسات أمامية وخلفية",
+      "Electric seats with memory": "كراسي كهرباء بالذاكرة",
+      "Brake assist": "مساعد الفرامل",
+      "Power-folding mirrors": "مرايات كهربائية تطبق",
+      "10-colour ambient lighting": "إضاءة داخلية ١٠ ألوان",
+      "Heated electric seats": "كراسي كهرباء تدفئة",
+      "LED High Performance headlamps": "كشافات LED High Performance",
+      "Wireless Apple CarPlay & Android Auto": "Apple CarPlay و Android Auto لاسلكي",
+    },
+  },
+  wall: {
+    heading: "الصالة",
+    intro: "جدار الصالة بيقلب من عربية للي بعدها — زي لوحة المطار بالظبط.",
+    caption: "مصر الجديدة — الصالة الداخلية",
+    readout: "لوحة قلّابة · ٦ لقطات",
+  },
+  marques: {
+    heading: "الماركات",
+    intro: "الماركات اللي بتعدّي من الصالة على مدار السنة.",
+  },
+};
