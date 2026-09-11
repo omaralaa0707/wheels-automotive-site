@@ -1,76 +1,74 @@
-# Wheels Automotive — concept site
+# Wheels Automotive — site 05 of 46
 
-A bilingual (Arabic / English) concept marketing site for **Wheels Automotive**,
-46 El-Thawra Street, Heliopolis, Cairo.
+A concept site built entirely from this dealership's own published material.
+**Not affiliated with Wheels Automotive, and not an official site.**
 
-> **Concept design — not the official Wheels Automotive website.** Photography
-> and specifications are taken from the dealership's own public channels.
+- **Live:** https://wheels-automotive-site.vercel.app
+- **Repo:** [wheels-automotive-site](https://github.com/omaralaa0707/wheels-automotive-site)
 
-## The idea
+## What this page is about
 
-Wheels publish spec-led captions: every car they post arrives with its engine,
-output, rims, audio and full equipment list written out. So this site is built
-as an **instrument panel** rather than a showroom lobby — graphite and steel,
-brass used only where their own emblem uses it, mono type carrying every figure,
-and a mint "live" accent for status.
+Every site in this series is built around something true and checkable about
+the dealer's own account — a pattern in what they publish, a contradiction
+between two of their channels, or a fact about their showroom — rather than
+around a generic template. The palette, type, 3D piece and motion below were
+all chosen to serve that finding.
 
-## Signature technique — the split-flap wall
+## Design record
 
-`src/components/three/flip-wall.tsx` renders their showroom as a **split-flap
-board**: an `InstancedMesh` of 9×6 tiles, each carrying a slice of the current
-photograph on its front face and the next photograph on its back. Scroll drives
-a diagonal wave of flips, so one car turns into the next the way an airport
-board changes.
+**Palette**
+: Graphite / steel / brass + mint "live" (their brass emblem on charcoal walls)
 
-Details worth noting:
+**Type pairing**
+: Chakra Petch + IBM Plex Sans/Mono / Noto Kufi Arabic
 
-- Each tile samples only its own slice via an `aUvOffset` instanced attribute —
-  without it, every tile would show the whole photo.
-- The back face mirrors `v`, because rotating about the horizontal axis
-  otherwise delivers the next photograph upside down.
-- Photos are **cover-fitted** to the wall's aspect in the shader rather than
-  stretched, and the wall is sized from the live frustum so it always reaches
-  the viewport edges.
-- A gentle gamma lift keeps their very dark showroom photography readable at
-  wall scale.
+**3D / signature technique**
+: Instanced split-flap wall: 9×6 tiles, per-tile shader flip on a diagonal delay, front/back photo slices
 
-## The spec reader
+**Motion language**
+: Mechanical and instrumented: figures "seat" like a gauge needle, brass travel hairline, tabular mono throughout
 
-`src/components/site/spec-reader.tsx` pins and steps through five cars as you
-scroll. Figures don't crossfade — they **seat**, like a gauge needle finding its
-stop. A brass hairline along the top edge reads out travel through the section.
+## Sources
 
-Every figure is transcribed verbatim from Wheels' own captions
-(`src/content/media.ts`); nothing is invented or rounded.
+Everything on the page was sourced from:
 
-## Bilingual
+- Instagram: https://www.instagram.com/wheels.eg/
+- Facebook: https://www.facebook.com/WheelsAutoEgypt/
+- Google Maps: https://www.google.com/maps/place/Wheels/data=!4m2!3m1!1s0x0:0x605a50a9274eac7f
 
-Arabic is the primary locale and the default. The toggle swaps a full content
-dictionary and flips `lang`/`dir` on `<html>`; Arabic type scales are keyed to
-`[dir="rtl"]` (never `[lang]`, which browser translation rewrites) and live
-outside `@layer` so they outrank Tailwind's utilities.
+Photography belongs to the dealership (or, where their frames are watermarked
+by an outside studio, to that studio) and is used here only to document their
+own published material. No figure on the page is invented: anything the dealer
+did not publish is marked as unpublished rather than estimated.
 
-## Fallbacks
-
-- Every WebGL surface is guarded by `use-webgl-health`; a dropped context falls
-  back to a static grid of the same frames.
-- `prefers-reduced-motion` and viewports under `1024px` skip the pinned reader
-  and lay all five spec cards out plainly — a phone can't hold one card at once.
-
-## Brand mark
-
-`public/mark.svg` is their winged-brass roundel, redrawn from the piece mounted
-on their showroom wall (their Instagram avatar is a family photograph, not a
-logo). It is built for the graphite ground — the dark details are knockouts.
-
-## Stack
-
-Next.js 16 · React 19 · TypeScript · Tailwind CSS v4 · GSAP + ScrollTrigger ·
-Lenis · react-three-fiber / three.js
+## Running it
 
 ```bash
 pnpm install
-pnpm dev
+pnpm dev      # http://localhost:3000
+pnpm build    # production build — must pass before shipping
+pnpm lint     # eslint, zero warnings
 ```
 
-Fonts: Chakra Petch (display), IBM Plex Sans / Mono, Noto Kufi Arabic.
+Requires `node-linker=hoisted` in `.npmrc` (already present) or three.js peer
+deps fail to resolve.
+
+## Structure
+
+```
+src/content/media.ts      verified facts and figures — the data layer
+src/content/en.ts|ar.ts   all copy, both locales, identical shapes
+src/content/schema-ext.ts the page-specific content contract
+src/components/webgl/     the 3D piece
+src/components/site/      the page composition
+src/app/globals.css       palette tokens, type, RTL overrides, motion
+```
+
+Arabic/English toggle with full RTL. All CSS direction overrides key off
+`[dir="rtl"]` (never `[lang]`) and live outside `@layer`. Every Latin or
+numeric fragment inside Arabic copy is wrapped in `.latin` for correct bidi.
+
+---
+
+Part of a 46-site series. See the [top-level README](../README.md) for the full
+index and [`TRACKING.md`](../TRACKING.md) for the differentiation log.
