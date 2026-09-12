@@ -77,8 +77,7 @@ export const en: WheelsContent = {
     cta: "Message us on WhatsApp",
   },
   footer: {
-    disclaimer: "Concept design — not the official Wheels Automotive website.",
-    rights: "Photography and specifications taken from the dealership's own channels.",
+    rights: "© Wheels Automotive. All rights reserved.",
   },
   a11y: {
     toggleLanguage: "Switch to Arabic",

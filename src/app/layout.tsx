@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Chakra_Petch, IBM_Plex_Sans, IBM_Plex_Mono, Noto_Kufi_Arabic } from "next/font/google";
 import "./globals.css";
 import { LocaleProvider } from "@/i18n/locale-provider";
-import { ScrollProvider } from "@/components/motion/scroll-provider";
 import { ar } from "@/content/ar";
 import { en } from "@/content/en";
 
@@ -39,7 +38,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     >
       <body className="bg-graphite text-white-hot antialiased">
         <LocaleProvider dictionaries={{ ar, en }} defaultLocale="ar">
-          <ScrollProvider />
           {children}
         </LocaleProvider>
       </body>

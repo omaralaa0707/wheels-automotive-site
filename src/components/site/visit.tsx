@@ -169,7 +169,7 @@ export function Visit() {
             </span>
           </div>
           <p className="font-mono text-[10px] uppercase leading-relaxed tracking-[0.14em] text-steel-2">
-            {content.footer.disclaimer} · {content.footer.rights}
+            {content.footer.rights}
           </p>
         </div>
       </footer>
