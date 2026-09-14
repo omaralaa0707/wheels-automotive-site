@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useCallback, useRef, useState } from "react";
-import { ScrollTrigger, useGSAP } from "@/lib/gsap";
 import { FlipWall } from "@/components/three/flip-wall";
 import { SHOWROOM } from "@/content/media";
 import { useWheels } from "@/content/schema-ext";

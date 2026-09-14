@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useRef, useState } from "react";
-import { ScrollTrigger, useGSAP } from "@/lib/gsap";
 import { useLocale } from "@/i18n/locale-provider";
 import { CARS } from "@/content/media";
 import { useWheels } from "@/content/schema-ext";
